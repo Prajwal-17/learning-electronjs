@@ -3,14 +3,17 @@ import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 
+// to suppress vsync warning - 46296:0719/151454.786566:ERROR:gl_surface_presentation_helper.cc(260) GetVSyncParametersIfAvailable() failed for 1 times!
+app.commandLine.appendSwitch('disable-gpu');
+
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 900,
     height: 670,
     show: false,
-    autoHideMenuBar: true,
-    ...(process.platform === 'linux' ? { icon } : {}),
+    autoHideMenuBar: false,
+    // ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
       sandbox: false

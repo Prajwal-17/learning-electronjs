@@ -29,6 +29,11 @@ app.on("before-quit", () => {
   console.log("quitting")
 })
 
+ipcMain.on("hello-main", (event, arg) => {
+  console.log("arg", arg)
+  console.log("event", event)
+})
+
 // close all windows before closing the app
 // https://www.electronjs.org/docs/latest/api/app#event-window-all-closed
 // On macOS, we do not quit the app automatically when all windows are closed.

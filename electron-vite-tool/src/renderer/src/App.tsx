@@ -12,6 +12,11 @@ const App = () => {
           voluptates temporibus accusantium obcaecati, magnam laborum velit
           suscipit cum distinctio autem aspernatur rem.
         </p>
+
+        <div>
+          <button id="btn">Click me</button>
+          Title: <input id="title" />
+        </div>
       </div>
     </>
   );
